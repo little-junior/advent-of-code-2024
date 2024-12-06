@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"log"
-	"math"
 	"os"
 	"slices"
 	"strconv"
@@ -49,9 +48,9 @@ func main() {
 
 func firstStar(leftList, rightList []int) (count int) {
 	for i := range leftList {
-		res := math.Abs((float64(leftList[i] - rightList[i])))
+		res := abs(leftList[i], rightList[i])
 
-		count += int(res)
+		count += res
 	}
 
 	return count
@@ -79,4 +78,12 @@ func secondStart(leftList, rightList []int) (count int) {
 	// }
 
 	return count
+}
+
+func abs(a, b int) int {
+	if a > b {
+		return a - b
+	}
+
+	return b - a
 }
